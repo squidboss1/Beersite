@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEERSITE - O nas</title>
+    <link
+      href="/static/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous">
+    <script
+src="/static/bootstrap.bundle.min.js"
+integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/o_nas.css">
+  </head>
+  <body>
+    <div class="container-fluid align-items-start gx-0 shadow-sm">
+
+      <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid align-items-start gx-0 shadow-sm me-auto order-0 glownybar">
+          <a class="navbar-brand" href="#">BEERSITE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page"
+                  href="{{ url_for('home') }}">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"
+                  href="#">O NAS</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  RODZAJE PIW
+                </a>
+               <ul class="dropdown-menu" style="background-color:#876445;
+                  color:whitesmoke;">
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_jasne') }}">JASNE</a></li>
+                  <li><a class="dropdown-item"
+                         href="{{ url_for('rodzaje_ciemne') }}">CIEMNE</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_marcowe') }}">MARCOWE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_bock') }}">BOCK/KOŹLAK</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_porter') }}">PORTER</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_stout') }}">STOUT</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_ale') }}">ALE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_pszeniczne') }}">PSZENICZNE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_smakowe') }}">SMAKOWE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_specjalne') }}">SPECJALNE</a></li>
+                </ul>
+              </li>
+              <li class="nav-item navitemsklep">
+                <a class="nav-link" href="{{ url_for('sklep') }}">SKLEP</a>
+              </li>
+              <form class="d-flex ms-auto order-5" role="search">
+                <input class="form-control me-2" type="search"
+                  placeholder="Wyszukaj" aria-label="Search">
+                <button class="btn btn-outline-success btnszukaj" type="submit">SZUKAJ</button>
+              </form>
+              <li class="nav-item ms-auto order-5">
+                <a class="nav-link logowanienav" href="{{ url_for('logowanie') }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                  </svg>
+                  LOGOWANIE</a>
+              </li>
+              <li class="nav-item ms-auto order-5">
+                <a class="nav-link" href="{{ url_for('koszyk') }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16" style="margin-bottom: 6px;">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                  </svg>
+                   KOSZYK</a>
+              </li>
+              <li class="nav-item ms-auto order-5">
+                <a class="nav-link" href="{{ url_for('rejestracja') }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="23" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16" style="margin-bottom: 6px;">
+                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                    <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                   REJESTRACJA</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+    
+    <div class="container-xxl gx-0 shadow-sm">
+
+      <div class="row align-items-center glownyrow">
+
+    
+            
+            <img class="img-fluid gx-0 img1" 
+            src="https://static-sevilla.abc.es/media/sevilla/2021/05/07/s/pasaje-andaluz-sierpes-knyC--1200x630@abc.jpg"
+            alt="">
+          <img class="img-fluid gx-0 img1" 
+            src="https://www.morningadvertiser.co.uk/var/wrbm_gb_hospitality/storage/images/publications/hospitality/morningadvertiser.co.uk/article/2021/05/21/pub-sales-after-lockdown-in-england/4426612-1-eng-GB/Pub-sales-after-lockdown-in-England.jpg"
+            alt="">
+     
+       
+   
+        <div class="col-xxl conttext">
+           <h3 class="Onas">O NAS</h3>
+
+
+          <p>W 1995 roku postanowiliśmy wraz z przyjaciółmi otworzyć własny bar w Warszawie, dedykowany miłośnikom piwa i spotkań ze znajomymi. Początkowo był to mały lokal w centrum miasta, który oferował kilka gatunków piwa, ale wkrótce zyskaliśmy na popularności i zaczęliśmy przyciągać coraz większą liczbę klientów.
+
+            Wraz z upływem lat, zauważyliśmy, że naszym klientom zaczyna brakować nowych smaków i doświadczeń. Postanowiliśmy więc wprowadzić zmiany, by zwiększyć atrakcyjność naszego miejsca i zaspokoić ich potrzeby. Przede wszystkim zaczęliśmy poszerzać ofertę piw, wprowadzając coraz to nowe gatunki z różnych stron świata. Dodatkowo, dodaliśmy kilka stołów bilardowych i telewizory, by nasi klienci mogli oglądać na żywo mecze piłki nożnej i inne wydarzenia sportowe.
+            
+            W 2010 roku, razem ze swoim zespołem, podjęliśmy kolejną ważną decyzję - postanowiliśmy rozszerzyć swoją działalność na sklep internetowy. W ten sposób powstał sklep e-commerce, w którym nasi klienci mogli zamawiać piwo i inne produkty alkoholowe online. Była to dla nas szansa na jeszcze większy rozwój i zdobycie nowych klientów.</p>
+        
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <p>Evolve or Die.</p>
+              </blockquote>
+              <figcaption class="blockquote-footer">
+                Motivation.
+              </figcaption>
+            </figure>
+        
+          </div>
+      </div>
+
+
+      <div class="container-xxl gx-0">
+        <div class="row align-items-center">
+          <img class="img-fluid gx-0 img2" 
+          src="https://hips.hearstapps.com/hmg-prod/images/four-guys-drink-up-in-a-chicago-bar-ca-1948-news-photo-1633573700.jpg"
+          alt="">
+          <img class="img-fluid gx-0 img2"
+          src="https://i.etsystatic.com/23999750/r/il/69dc54/3409956868/il_1080xN.3409956868_nrxx.jpg"
+          alt="">
+         
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="container-xxl bi-text-left gx-0">
+      <div class="row align-items-center rowstopki">
+        <div class="col-xxl divstopki">
+          <h5 class="h5stopki">Beersite
+            Sp. z o.o.</h5>
+          <h6 class="h6stopki">ul. Browarna 15</h6>
+          <h6 class="h6stopki">34-300 Żywiec</h6>
+          <h6 class="h6stopki">email: beersite@gmail.com</h6>
+          <h6 class="h6stopki">tel.: +48 500 000 000 (Infolina
+            wyłącznie dla osób, które chcą się napić)</h6>
+          <h6 class="migajacy-napis">tel.:
+            +48 501 001
+            001 (Zakładowa Izba wytrzeźwień)</h6>
+          <p class="powered">@powered by ŁM</p>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="'js/bootstrap.js"></script>
+    <!-- <script src="'js/bootstrap.bundle.js"></script>  2-ga opcja ze wszystkimi dependencies-->
+  </body>
+</html>

@@ -1,0 +1,302 @@
+body{
+    background-color: #876445;
+  }
+    [class*="col"]{
+        padding: 0 0;
+        /* background-color: #cf920ddb; */
+        border: 0px solid #fff;
+        color: #fff;
+        margin: 0;
+    }
+
+    .h1, h2{
+        color: rgb(232, 224, 224);
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight:bold;
+    }
+
+    .migajacy-napis {
+        font-size: 14;
+        color: rgb(241, 229, 229);
+      }
+      
+      /* Animacja */
+      @keyframes migotanie {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      /* Przypisanie animacji do napisu */
+      .migajacy-napis {
+        animation-name: migotanie;
+        animation-duration: 2.85s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      .wjezdzajacy-napis {
+        position: relative;
+        animation: wjezdzanie 0.5s ease-in-out forwards;
+      }
+      
+      /* Animacja */
+      @keyframes wjezdzanie {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0%);
+        }
+      }
+
+      .btn:hover{
+        background-color: white;
+
+      }
+
+      .btn:focus{
+        color: white;
+        background-color: aliceblue;
+        background-color: white;
+      }
+
+      .btn:active{
+        color:#876445;
+        background-color: rgb(222, 209, 209);
+        box-shadow: none;
+      }
+
+      .btn:active:focus {
+        color: #ffffff; 
+        background-color: rgb(242, 233, 233);
+      }
+
+      .btn-outline-success:hover{
+        color: #876445 !important;
+        border-color: #876445 !important;
+      }
+
+      .dropdown-item:active{
+        background-color: #CA955C;
+
+      }
+
+       .navbar-nav a:hover {
+        color: #876445;
+      }
+
+      .dropdown-item:hover {
+        color:black !important;
+      }
+
+
+      .bg-body-tertiary{
+        margin: 0 0 0 0; padding: 0px 0px;
+      }
+      
+      .maincont{
+        background-color:#CA955C; padding: 8px 8px; font-size:
+        15px;
+      }
+
+      .navbar-nav{
+        padding: 0 0; margin: 0 0 0 0;
+      }
+
+      .dropdown-menu{
+        background-color:#876445;
+                color:whitesmoke;
+      }
+
+      .dropdown-item{
+        color:whitesmoke;
+      }
+
+      .navsklep{
+        margin-right: 10px;
+      }
+
+      .btnszukaj{
+        color: black; border-color:black; font-size: 15px;
+      }
+
+      .navlogo{
+        margin-left: 8px;
+      }
+
+      .bi-box-arrow-in-right{
+        margin-bottom: 3px;
+      }
+
+      .bi-bag{
+        margin-bottom: 6px;
+       }
+
+       .bi-card-checklist{
+        margin-bottom: 6px;
+       }
+
+       .maincont2{
+        padding:
+              25px 25px;
+              border:0; margin: 100px 0 0 0; border-radius: 10px;
+              text-align:center; background-color: #CA955C;
+       }
+
+       .textgl{
+        padding: 0px 25px;
+                    color:black; font-size:small;
+       }
+
+       .zamtext{
+        font-size:medium; margin: 30px 10px;
+                        font-weight:600;
+       }
+
+       .justify-content-center{
+        margin: 10px 10px;
+       }
+
+       .is-valid{
+        width: 350px;
+       }
+
+       .is-invalid{
+        width: 350px;
+       }
+
+       .invalid-feedback{
+        color: black;
+       }
+
+       .akceptacja{
+        margin: 25px 140px;
+       }
+
+       .colplt{
+        padding: 10px 10px;
+       }
+
+       .btnplatnosc{
+        background-color: #876445;
+                        border-color:#a2720ce9; color:white; padding: 10px
+                        15px; margin: 5px 20px;
+       }
+
+       .colnowe{
+        border-left: 1px black
+                  solid; margin-top: 30px;
+       }
+
+       .textzaloguj{
+        padding: 0px 25px;
+                        color:black; font-size:small;
+       }
+
+        .tzalo{
+            font-size:medium; margin: 30px 10px;
+                            font-weight:600
+        }
+
+        .collo{
+            width: 250px;
+        }
+
+        .fpass{
+            margin-bottom: 25px;
+        }
+
+        .btnzalo{
+            background-color: #876445;
+                        border-color:#a2720ce9; color:white; padding: 10px 15px;
+                        margin: 5px 30px;
+        }
+
+        .ukonto{
+            text-decoration: none;
+        }
+
+        .pu{
+            color:#876445;
+        }
+
+        
+.h3naszeprod {
+    margin-bottom: 10px;
+    margin-top: 25px;
+    text-shadow: 1px 1px black;
+  }
+  
+  .carousel-item {
+    margin-top: -50px;
+  }
+  
+  .kontcarousel {
+    padding: 0 0;
+    margin-top: 0px;
+  }
+  
+  .card-text {
+    margin-bottom: 0px;
+  }
+  
+  .carousel-control-prev-icon {
+    filter: invert(100%);
+    margin-top: -60px;
+    margin-left: -40px;
+  }
+  
+  .carousel-control-next-icon {
+    filter: invert(100%);
+    margin-top: -60px;
+    margin-right: -40px;
+  }
+  
+  .rowstopka {
+    height: 230px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    border: 0;
+  }
+  
+  .colstopka {
+    background-color: #ca955c;
+    padding: 50px;
+    margin: 0;
+    height: 230px;
+    margin-top: -15px;
+    margin-bottom: 0px;
+    border: 0;
+    border-radius: 8px;
+    color: black;
+    text-align: left;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: bold;
+  }
+  
+  .h5beer{
+      margin-top: -5px;
+      font-weight: bold;
+      font-size: 16px
+  }
+  
+  h6{
+      font-size: 14px;
+  }
+  
+  .powered{
+      text-align: right;
+      font-size: 12px;
+      font-weight:100;
+      margin-right: -32px;
+  }
+
+        
+

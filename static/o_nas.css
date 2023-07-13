@@ -1,0 +1,235 @@
+body{
+  background-color: #876445;
+}
+  [class*="col"]{
+      padding: 0 0;
+      /* background-color: #cf920ddb; */
+      border: 0px solid #fff;
+      color: #fff;
+      margin: 0;
+  }
+
+  .h1, h2{
+      color: rgb(232, 224, 224);
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight:bold;
+  }
+
+  .migajacy-napis {
+      font-size: 24px;
+      color: rgb(241, 229, 229);
+    }
+    
+    /* Animacja */
+    @keyframes migotanie {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    /* Przypisanie animacji do napisu */
+    .migajacy-napis {
+      animation-name: migotanie;
+      animation-duration: 2.85s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .wjezdzajacy-napis {
+      position: relative;
+      animation: wjezdzanie 0.5s ease-in-out forwards;
+    }
+    
+    /* Animacja */
+    @keyframes wjezdzanie {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0%);
+      }
+    }
+
+    .btn:hover{
+      background-color: white;
+
+    }
+
+    .btn:focus{
+      color: white;
+      background-color: aliceblue;
+      background-color: white;
+    }
+
+    .btn:active{
+      color:#876445;
+      background-color: rgb(222, 209, 209);
+      box-shadow: none;
+    }
+
+    .btn:active:focus {
+      color: #ffffff; 
+      background-color: rgb(242, 233, 233);
+    }
+
+    .btn-outline-success:hover{
+      color: #876445 !important;
+      border-color: #876445 !important;
+    }
+
+    .dropdown-item:active{
+      background-color: whitesmoke;
+    }
+
+
+    .dropdown-item:hover {
+      color:black !important;
+    }
+    
+    .navbar-nav a:hover {
+      color: #876445;
+    }
+
+    .container-fluid{
+        background-color:#CA955C;
+        padding: 8px 8px;
+        font-size: 15px;
+    }
+
+    .navbar-nav{
+        padding: 0 0;
+        margin: 0 0 0 0;
+    }
+
+    .dropdown-item{
+        color: whitesmoke;
+      }
+
+    .dropdown-menu{
+        background-color:#876445;
+        color:whitesmoke;
+    }
+
+
+    ul li hr{
+        background-color: whitesmoke;
+    }
+
+    .btnszukaj{
+        color: black;
+        border-color:black;
+        font-size: 15px;
+    }
+
+    .navitemsklep{
+        margin-right: 10px;
+    }
+
+    .bg-body-tertiary{
+        margin: 0 0 0 0;
+        padding: 0px 0px;
+    }
+
+    .logowanienav{
+        margin-left: 8px;
+    }
+
+    .glownyrow{
+        margin-top: 50px;
+    }
+
+    .img1{
+        box-sizing: border-box;
+        padding: 0;
+        border-radius: 1px;
+        height:400px;
+        width:50%;
+        margin: 0px 0;
+    }
+
+    .conttext{
+        padding: 25px 25px;
+        border:0;
+        margin: 0 0;
+        text-align:left;
+        background-color: #CA955C;
+    }
+
+    .Onas{
+        padding:20px 20px;
+        color:rgb(15, 14, 14);
+        font-weight:bold;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman',serif;
+        text-shadow:1px 1px rgb(15, 14, 14);
+    }
+
+    p{
+        color: black;
+    }
+
+    .text-end{
+        padding: 0px 25px;
+        color:black;
+    }
+
+    .img2{
+        box-sizing: border-box;
+        padding: 0;
+        border-radius: 1px;
+        height:500px;
+        width:50%;
+        margin: 0px 0;
+    }
+
+    .blockquote-footer{
+        color:black;
+    }
+
+
+    .rowstopki {
+        height: 230px;
+        margin-top: 1px;
+        margin-bottom: 0px;
+        border: 0;
+      }
+      
+      .divstopki {
+        background-color: #ca955c;
+        padding: 50px;
+        margin: 0;
+        height: 230px;
+        margin-top: -15px;
+        margin-bottom: 0px;
+        border: 0;
+        color: black;
+        text-align: left;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: bold;
+      }
+      
+      .h5stopki {
+        margin-top: -5px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      
+      .h6stopki {
+        font-size: 14px;
+      }
+      
+      .powered {
+        text-align: right;
+        font-size: 12px;
+        font-weight: 100;
+        margin-right: -32px;
+      }
+      
+
+
+

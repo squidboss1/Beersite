@@ -1,0 +1,302 @@
+body {
+  background-color: #876445;
+}
+
+[class*="col"] {
+  padding: 0 0;
+  /* background-color: #cf920ddb; */
+  border: 0px solid #fff;
+  color: #fff;
+  margin: 0;
+}
+
+.h1,
+h2 {
+  color: rgb(232, 224, 224);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+}
+
+.migajacy-napis {
+  font-size: 24px;
+  color: rgb(241, 229, 229);
+}
+
+/* Animacja */
+@keyframes migotanie {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Przypisanie animacji do napisu */
+.migajacy-napis {
+  font-size: 14px;
+  animation-name: migotanie;
+  animation-duration: 2.85s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.wjezdzajacy-napis {
+  position: relative;
+  animation: wjezdzanie 0.5s ease-in-out forwards;
+}
+
+/* Animacja */
+@keyframes wjezdzanie {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+.btn:focus {
+  color: white;
+  background-color: aliceblue;
+  background-color: white;
+}
+
+.btn:active {
+  color: #876445;
+  background-color: rgb(222, 209, 209);
+  box-shadow: none;
+}
+
+.btn:active:focus {
+  color: #ffffff;
+  background-color: rgb(242, 233, 233);
+}
+
+.btn-outline-success:hover {
+  color: #876445 !important;
+  border-color: #876445 !important;
+}
+
+.dropdown-item{
+  color: whitesmoke;
+}
+
+.dropdown-item:active {
+  background-color: whitesmoke;
+}
+
+.dropdown-item:hover {
+  color: black !important;
+}
+
+.navbar-nav a:hover {
+  color: #876445;
+}
+
+.logowanienav {
+  margin-left: 8px;
+}
+
+.container-fluid {
+  background-color: #ca955c;
+  padding: 8px 8px;
+  font-size: 15px;
+}
+
+.navitemsklep {
+  margin-right: 10px;
+}
+
+.btn-outline-success {
+  color: black;
+  border-color: black;
+  font-size: 15px;
+}
+
+li a .nav-link {
+  margin-left: 8px;
+}
+
+ul li a{
+  color:whitesmoke;
+}
+
+ul li hr{
+  background-color: whitesmoke;
+}
+
+.beersite {
+  height: 100px;
+  margin-top: 35px;
+  margin-bottom: 0px;
+  border: 0;
+}
+
+.hbeer1 {
+  color: rgb(232, 224, 224);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  padding: 40px 25px 0px 25px;
+  font-size: 38px;
+  margin: 0 0;
+  margin-top: 10px;
+  border: 0;
+  text-shadow: 2px 2px rgb(15, 14, 14);
+}
+
+.maincont {
+  padding: 0 0;
+}
+
+.dbeer1 {
+  padding: 0;
+  margin: 0 0;
+  height: 100px;
+  background-color: #ca955c;
+}
+
+.wpswoje {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 0;
+}
+
+.wpswoje1 {
+  padding: 0;
+  margin: 0 0;
+  height: 50px;
+  background-color: #ca955c;
+}
+
+.wjezdzajacy-napis {
+  padding: 0px 25px 60px 25px;
+  font-size: 32px;
+  text-shadow: 2px 2px rgb(15, 14, 14);
+}
+
+.obrazekglowny {
+  padding: 0;
+  margin: 0;
+}
+
+.obrazekglowny1 {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.kontenerprod {
+  padding: 0 0;
+}
+
+.card-text {
+  margin-bottom: 0px;
+}
+
+.card-price {
+  padding: 4px 4px;
+  margin-bottom: 4px;
+}
+
+.btnprod {
+  background-color: #ca955c;
+  border-color: #a2720ce9;
+}
+
+.coltext {
+  padding: 25px 25px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border: 0;
+  margin: 0 0;
+  text-align: left;
+  background-color: #ca955c;
+}
+
+.hnaglowektext {
+  padding: 20px 20px;
+  color: rgb(15, 14, 14);
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-shadow: 1px 1px rgb(15, 14, 14);
+}
+
+.naglowektext {
+  color: rgb(15, 14, 14);
+}
+
+.skleptextbtt {
+  background-color: #876445;
+  border-color: #a2720ce9;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px 30px;
+}
+
+.zdjdol {
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 1px;
+  height: 250px;
+  width: 33.3%;
+  margin: 0px 0;
+}
+
+.zdjdol2 {
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 1px;
+  height: 250px;
+  width: 33.4%;
+  margin: 0px 0;
+}
+
+.rowstopki {
+  height: 230px;
+  margin-top: 1px;
+  margin-bottom: 0px;
+  border: 0;
+}
+
+.divstopki {
+  background-color: #ca955c;
+  padding: 50px;
+  margin: 0;
+  height: 230px;
+  margin-top: -15px;
+  margin-bottom: 0px;
+  border: 0;
+  color: black;
+  text-align: left;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.h5stopki {
+  margin-top: -5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.h6stopki {
+  font-size: 14px;
+}
+
+.powered {
+  text-align: right;
+  font-size: 12px;
+  font-weight: 100;
+  margin-right: -32px;
+}

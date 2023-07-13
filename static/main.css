@@ -1,0 +1,79 @@
+
+[class*="col"]{
+    padding: 0 0;
+    /* background-color: #cf920ddb; */
+    border: 0px solid #fff;
+    color: #fff;
+    margin: 0;
+}
+
+.h1, h2{
+    color: rgb(232, 224, 224);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:bold;
+}
+
+.migajacy-napis {
+    font-size: 24px;
+    color: rgb(241, 229, 229);
+  }
+  
+  /* Animacja */
+  @keyframes migotanie {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Przypisanie animacji do napisu */
+  .migajacy-napis {
+    animation-name: migotanie;
+    animation-duration: 2.85s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .wjezdzajacy-napis {
+    position: relative;
+    animation: wjezdzanie 0.5s ease-in-out forwards;
+  }
+  
+  /* Animacja */
+  @keyframes wjezdzanie {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  .btn:hover{
+    background-color: #e0cca2;
+
+  }
+
+  .btn:focus{
+    color: white;
+    background-color: aliceblue;
+    background-color: white;
+  }
+
+  .btn:active{
+    color: white;
+    background-color: rgb(222, 209, 209);
+    box-shadow: none;
+  }
+
+  .btn:active:focus {
+    color: #ffffff; 
+    background-color: rgb(242, 233, 233);
+  }
+
+

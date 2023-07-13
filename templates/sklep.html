@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEERSITE - Twój ulubiony sklep</title>
+    <link
+      href="/static/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous">
+    <script
+src="/static/bootstrap.bundle.min.js"
+integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/sklep.css">
+
+  </head>
+  <body>
+    <div class="container-fluid align-items-start gx-0 shadow-sm">
+
+      <nav
+        class="navbar fixed-top navbar-expand-lg bg-body-tertiary glownynavbar">
+        <div class="container-fluid align-items-start gx-0 shadow-sm me-auto
+          order-0 divnavbar">
+          <a class="navbar-brand" href="#">BEERSITE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page"
+                  href="{{ url_for('home') }}">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"
+                 href="{{ url_for('o_nas') }}">O NAS</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  RODZAJE PIW
+                </a>
+                <ul class="dropdown-menu" style="background-color:#876445;
+                  color:whitesmoke;">
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_jasne') }}">JASNE</a></li>
+                  <li><a class="dropdown-item"
+                         href="{{ url_for('rodzaje_ciemne') }}">CIEMNE</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_marcowe') }}">MARCOWE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_bock') }}">BOCK/KOŹLAK</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_porter') }}">PORTER</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_stout') }}">STOUT</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_ale') }}">ALE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_pszeniczne') }}">PSZENICZNE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_smakowe') }}">SMAKOWE</a></li>
+                  <li><a class="dropdown-item"
+                      href="{{ url_for('rodzaje_specjalne') }}">SPECJALNE</a></li>
+                </ul>
+              </li>
+              <li class="nav-item navitemsklep">
+                <a class="nav-link" href="#">SKLEP</a>
+              </li>
+              <form class="d-flex ms-auto order-5" role="search">
+                <input class="form-control me-2" type="search"
+                  placeholder="Wyszukaj" aria-label="Search">
+                <button class="btn btn-outline-success btnszukaj" type="submit">SZUKAJ</button>
+              </form>
+              <li class="nav-item ms-auto order-5">
+                <a class="nav-link" style="margin-left: 8px"
+                  href="{{ url_for('logowanie') }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                    fill="currentColor" class="bi bi-box-arrow-in-right"
+                    viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                    <path fill-rule="evenodd"
+                      d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                    <path fill-rule="evenodd"
+                      d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                  </svg>
+                  LOGOWANIE</a>
+              </li>
+              <li class="nav-item ms-auto order-5">
+                <a class="nav-link"
+                  href="{{ url_for('koszyk') }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                    fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"
+                    style="margin-bottom: 6px;">
+                    <path
+                      d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                  </svg>
+                  KOSZYK</a>
+              </li>
+              <li class="nav-item ms-auto order-5">
+                <a class="nav-link"
+                  href="{{ url_for('rejestracja') }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="23"
+                    fill="currentColor" class="bi bi-card-checklist"
+                    viewBox="0 0 16 16" style="margin-bottom: 6px;">
+                    <path
+                      d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                    <path
+                      d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                  REJESTRACJA</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="container-xxl text-center gx-0 shadow-sm">
+
+      <div class="row align-items-center">
+        <div class="col-xxl">
+          <img class="main-img"
+            src="https://i.cbc.ca/1.6745438.1676141748!/fileImage/httpImage/super-bowl-ads-sold-out.jpg"
+            alt>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <p class="h4 fw-bold pnaszeprod">
+            NASZE PRODUKTY
+          </p>
+          <p class="pnaszeprodtext">W naszej ofercie znajdziesz szeroki wybór
+            piw, które spełnią oczekiwania każdego smakosza. Dzięki współpracy z
+            najlepszymi browarami, oferujemy piwa najwyższej jakości, które z
+            pewnością przypadną do gustu miłośnikom piwa. W naszej ofercie
+            znajdziesz zarówno klasyczne, jak i nowatorskie style piw, które
+            zaskoczą Cię niepowtarzalnym smakiem i aromatem. Każde piwo, które
+            oferujemy, zostało starannie wyselekcjonowane i przetestowane, aby
+            zapewnić Ci najwyższą jakość. Sprawdź już dziś, co mamy dla Ciebie w
+            naszej ofercie i pozwól sobie na chwilę relaksu z pysznym piwem!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB WYBORU RODZAJU PIW -->
+
+    <ul class="nav nav-tabs justify-content-center navkarty" id="myTab"
+      role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active naszeprodbtn" id="all-tab"
+          data-bs-toggle="tab" data-bs-target="#all-tab-pane" type="button"
+          role="tab" aria-controls="all-tab-pane" aria-selected="true">WSZYSTKIE</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link naszeprodbtn" id="light-tab"
+          data-bs-toggle="tab" data-bs-target="#light-tab-pane" type="button"
+          role="tab" aria-controls="light-tab-pane" aria-selected="false">PIWA
+          JASNE</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link naszeprodbtn" id="dark-tab" data-bs-toggle="tab"
+          data-bs-target="#dark-tab-pane" type="button" role="tab"
+          aria-controls="dark-tab-pane" aria-selected="false">PIWA CIEMNE</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+
+      <!-- ALL BEERS TAB -->
+
+      <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel"
+        aria-labelledby="all-tab" tabindex="0">
+
+        <div class="container-xxl text-center d-flex kontenerprodukty">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Żywiec.html">
+                <img
+                  src="https://madeinkaszebe.com.pl/zdjecia/produkt/913/783/0x992/2m/product_nb.jpg"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Żywiec</h5>
+                <p class="card-text">Chce się "Ż".</p>
+                <div class="card-price"> 10,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Warka.html">
+                <img
+                  src="https://www.estop24.pl/thumbs/w1000h1200q88/img/products/big/5902746110027_wc_1.JPG?v=2ef446640b669b7aa524d25ff1d065af"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Warka</h5>
+                <p class="card-text">Wyląduj na Planecie Warki.</p>
+                <div class="card-price"> 7,30 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Brackie.html">
+                <img
+                  src="https://leclerc-online.pl/public/upload/sellasist_cache/thumb_page_b257f89e639d68ad6c06a322ad885a77.jpg"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Brackie</h5>
+                <p class="card-text">Wrzuć na luz B).</p>
+                <div class="card-price"> 9,40 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Żubr.html">
+                <img
+                  src="https://www.delikatesyemis.pl/content/images/thumbs/0004656_zubr-piwo-jasne-500-ml_550.jpeg"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Żubr</h5>
+                <p class="card-text">Żubr przegania "żywiec".</p>
+                <div class="card-price"> 8,90 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://emmamarket.pl/20849-medium_default/napoj-piwny-somersby-pear-00-400ml-but-bzw-carlsberg.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sommersby</h5>
+                <p class="card-text">Twoje piwo.</p>
+                <div class="card-price"> 11,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://madeinkaszebe.com.pl/zdjecia/produkt/4114/825/600x600/3/product_nb.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sommersby Mago & Lime</h5>
+                <p class="card-text">Piwo smakowe.</p>
+                <div class="card-price"> 12,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://res.cloudinary.com/dj484tw6k/image/upload/v1618257689/e8a4dd75-92d3-4f42-98aa-7988566bc104.png"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Okocim Mocne Dubeltowe</h5>
+                <p class="card-text">Dla mocnych.</p>
+                <div class="card-price"> 9,90 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://madeinkaszebe.com.pl/zdjecia/produkt/2471/781/0x992/2m/product_nb.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Żywiec Porter</h5>
+                <p class="card-text">Leczy słabości.</p>
+                <div class="card-price"> 15,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://www.delikatesyemis.pl/content/images/thumbs/0018202_5900014002494-okocim-mistrzowski-porter-piwo-ciemne-500-ml_550.jpeg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Okocim Mistrzowski Porter</h5>
+                <p class="card-text">Mistrz powrócił.</p>
+                <div class="card-price"> 6,60 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://noibuonidentro.it/wp-content/uploads/2020/05/carlsberg-pilsner.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Carlsberg</h5>
+                <p class="card-text">Wiadomo.</p>
+                <div class="card-price"> 9,80 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://image.handelextra.pl/224558_565x423.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Carlsberg Red</h5>
+                <p class="card-text" style="margin-bottom: 75px;">Wrzuć na luz
+                  B).</p>
+                <div class="card-price"> 9,90 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://madeinkaszebe.com.pl/zdjecia/produkt/1041/812/0x992/2m/product_nb.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Lech</h5>
+                <p class="card-text">Lech Czech i Polak.</p>
+                <div class="card-price"> 5,40 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- LIGHT BEER TAB -->
+
+      </div>
+      <div class="tab-pane fade" id="light-tab-pane" role="tabpanel"
+        aria-labelledby="light-tab" tabindex="0">
+
+        <div class="container-xxl text-center d-flex"
+          style="padding: 0 0; margin-bottom:20px;">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Żywiec.html">
+                <img
+                  src="https://madeinkaszebe.com.pl/zdjecia/produkt/913/783/0x992/2m/product_nb.jpg"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Żywiec</h5>
+                <p class="card-text">Chce się "Ż".</p>
+                <div class="card-price"> 10,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Warka.html">
+                <img
+                  src="https://www.estop24.pl/thumbs/w1000h1200q88/img/products/big/5902746110027_wc_1.JPG?v=2ef446640b669b7aa524d25ff1d065af"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Warka</h5>
+                <p class="card-text">Wyląduj na Planecie Warki.</p>
+                <div class="card-price"> 7,30 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Brackie.html">
+                <img
+                  src="https://leclerc-online.pl/public/upload/sellasist_cache/thumb_page_b257f89e639d68ad6c06a322ad885a77.jpg"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Brackie</h5>
+                <p class="card-text">Wrzuć na luz B).</p>
+                <div class="card-price"> 9,40 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <a href="/bootstrap-5.3.0-alpha3-dist/karta_produktu_Żubr.html">
+                <img
+                  src="https://www.delikatesyemis.pl/content/images/thumbs/0004656_zubr-piwo-jasne-500-ml_550.jpeg"
+                  class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Żubr</h5>
+                <p class="card-text">Żubr przegania "żywiec".</p>
+                <div class="card-price"> 8,90 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://emmamarket.pl/20849-medium_default/napoj-piwny-somersby-pear-00-400ml-but-bzw-carlsberg.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sommersby</h5>
+                <p class="card-text">Twoje piwo.</p>
+                <div class="card-price"> 11,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://madeinkaszebe.com.pl/zdjecia/produkt/4114/825/600x600/3/product_nb.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sommersby Mago & Lime</h5>
+                <p class="card-text">Piwo smakowe.</p>
+                <div class="card-price"> 12,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://noibuonidentro.it/wp-content/uploads/2020/05/carlsberg-pilsner.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Carlsberg</h5>
+                <p class="card-text">Wiadomo.</p>
+                <div class="card-price"> 9,80 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://image.handelextra.pl/224558_565x423.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Carlsberg Red</h5>
+                <p class="card-text" style="margin-bottom: 75px;">Wrzuć na luz
+                  B).</p>
+                <div class="card-price"> 9,90 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://madeinkaszebe.com.pl/zdjecia/produkt/1041/812/0x992/2m/product_nb.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Lech</h5>
+                <p class="card-text">Lech Czech i Polak.</p>
+                <div class="card-price"> 5,40 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DARK BEER TAB -->
+
+      <div class="tab-pane fade" id="dark-tab-pane" role="tabpanel"
+        aria-labelledby="dark-tab" tabindex="0">
+
+        <div class="container-xxl text-center d-flex"
+          style="padding: 0 0; margin-bottom:20px;">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://res.cloudinary.com/dj484tw6k/image/upload/v1618257689/e8a4dd75-92d3-4f42-98aa-7988566bc104.png"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Okocim Mocne Dubeltowe</h5>
+                <p class="card-text">Dla mocnych.</p>
+                <div class="card-price"> 9,90 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://madeinkaszebe.com.pl/zdjecia/produkt/2471/781/0x992/2m/product_nb.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Żywiec Porter</h5>
+                <p class="card-text">Leczy słabości.</p>
+                <div class="card-price"> 15,00 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card w-25 shadow-sm p-3">
+              <img
+                src="https://www.delikatesyemis.pl/content/images/thumbs/0018202_5900014002494-okocim-mistrzowski-porter-piwo-ciemne-500-ml_550.jpeg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Okocim Mistrzowski Porter</h5>
+                <p class="card-text">Mistrz powrócił.</p>
+                <div class="card-price"> 6,60 zł</div>
+
+                <input class="form-control form-control-sm" type="number"
+                  placeholder="1 szt." aria-label=".form-control-sm example">
+
+                <button type="button"
+                  class="btn btn-primary toast-trigger dodajdokoszyka"
+                  data-target="liveToast" id="liveToastBtn">Dodaj do koszyka</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Wiadomość</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Produkt został dodany do koszyka.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- END OF TABS -->
+
+    <div class="container-xxl gx-0 shadow-sm">
+      <div class="container-xxl gx-0">
+        <div class="row align-items-center">
+          <img class="img-fluid gx-0 imgbottom1"
+            src="https://blog.drinktec.com/wp-content/uploads/2019/08/community-building-breweries.jpg"
+            alt>
+          <img class="img-fluid gx-0 imgbottom2"
+            style="box-sizing: border-box; padding: 0 0;
+            height:280px; width:33.4%; margin: 0px 0px;"
+            src="https://zengistics.com/wp-content/uploads/2022/09/10_craftbrewerylogistics.png"
+            alt>
+          <img class="img-fluid gx-0 imgbottom3"
+            src="https://assets.simpleviewinc.com/simpleview/image/fetch/c_fill,h_396,q_75,w_704/https://assets.simpleviewinc.com/simpleview/image/upload/crm/roanoke/OktoberfestChaos0_81119ba7-5056-a36a-091052a0607b8a10.png"
+            alt>
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-xxl cplatnoscwysylka">
+          <h3 class="h3platnoscwysylka">PŁATNOŚĆ I WYSYŁKA</h3>
+          <ul class="ulplatnoscwysylka"> Warunki płatności. Obsługujemy wiele
+            różnych sposobów płatności. Wybór zależy od Państwa indywidualnych
+            preferencji:
+            <li>
+              Przelew bankowy - jest to jedna z najczęściej stosowanych metod
+              płatności, w której pieniądze są przekazywane z konta bankowego
+              kupującego na konto sprzedającego.
+
+            </li>
+            <li>Karta kredytowa - to kolejna popularna metoda płatności, w
+              której kupujący dokonuje płatności za pomocą karty kredytowej.</li>
+            <li>Płatność za pobraniem - to sposób płatności, w którym kupujący
+              płaci za towar lub usługę po otrzymaniu jej.
+            </li>
+            <li>PayPal - jest to internetowy system płatności, który umożliwia
+              przesyłanie pieniędzy pomiędzy kontami PayPal.
+            </li>
+          </ul>
+          <ul class="ulplatnoscwysylka"><br> Warunki wysyłki.
+            <li>
+              Metoda dostawy: Dostawa będzie realizowana za pośrednictwem firmy
+              kurierskiej. Kupujący będzie miał możliwość wyboru między kilkoma
+              dostępnymi metodami dostawy, w tym kurierem standardowym, kurierem
+              ekspresowym lub odbiorem osobistym.
+            </li>
+            <li>Czas dostawy: Czas dostawy może się różnić w zależności od
+              wybranej metody dostawy oraz od miejsca dostawy. Przewidywany czas
+              dostawy zostanie podany w momencie składania zamówienia.</li>
+            <li>Numer śledzenia przesyłki: Po nadaniu przesyłki kupujący otrzyma
+              numer śledzenia, który będzie umożliwiał śledzenie statusu
+              przesyłki.
+            </li>
+            <li>Warunki zwrotu: W przypadku niezadowolenia z zakupu kupujący
+              będzie miał prawo do zwrotu towaru w ciągu 14 dni od daty
+              otrzymania przesyłki. Koszt zwrotu towaru będzie ponoszony przez
+              kupującego, chyba że towar był wadliwy lub niezgodny z
+              zamówieniem.
+            </li>
+            <li>
+              Koszt wysyłki: Wszystkie przesyłki będą obciążone dodatkowym
+              kosztem wysyłki, który zostanie ustalony przed dokonaniem zakupu.
+              Koszt wysyłki będzie zależał od wielkości i wagi przesyłki oraz od
+              wybranej metody dostawy.
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-xxl bi-text-left gx-0">
+      <div class="row align-items-center rowstopki">
+        <div class="col-xxl divstopki">
+          <h5 class="h5stopki">Beersite
+            Sp. z o.o.</h5>
+          <h6 class="h6stopki">ul. Browarna 15</h6>
+          <h6 class="h6stopki">34-300 Żywiec</h6>
+          <h6 class="h6stopki">email: beersite@gmail.com</h6>
+          <h6 class="h6stopki">tel.: +48 500 000 000 (Infolina
+            wyłącznie dla osób, które chcą się napić)</h6>
+          <h6 class="migajacy-napis">tel.:
+            +48 501 001
+            001 (Zakładowa Izba wytrzeźwień)</h6>
+          <p class="powered">@powered by ŁM</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="'js/bootstrap.js">
+    </script>
+    <script src="'js/bootstrap.bundle.js"></script>
+    <script>
+      document.querySelectorAll('.toast-trigger').forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+          const toast = new bootstrap.Toast(document.getElementById(this.dataset.target));
+          toast.show();
+        });
+      });
+    </script>
+
+  </body>
+</html>
